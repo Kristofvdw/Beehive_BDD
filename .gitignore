@@ -12,6 +12,7 @@ https://www.gitignore.io/api/intellij,java,eclipse
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
 src/test/java/com.refleqt.jbc/tests/BeehiveTest
+src/main/java/com.refleqt.jbc/support/DriverProvider
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids

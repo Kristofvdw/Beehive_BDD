@@ -1,6 +1,7 @@
 package com.refleqt.jbc.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +27,8 @@ public class CreateBeehivePage
     WebElement apiaryDropdown;
     @FindBy(name="queenCheckbox")
     WebElement queenCheckbox;
+    @FindBy(id="queen")
+    WebElement queenDropdown;
     @FindBy(id="extra_hive_parts")
     WebElement extraHivePartsField;
     @FindBy(id="in_use")
@@ -39,15 +42,16 @@ public class CreateBeehivePage
     public void fillForm(String name)
     {
         nameField.sendKeys(name);
-
         Select typeSelect = new Select(typeField);
         typeSelect.selectByValue("2");
         Select originSelect = new Select(originField);
         originSelect.selectByValue("1");
         apiaryCheckbox.click();
         queenCheckbox.click();
-        Select extraSelect = new Select(extraHivePartsField);
-        extraSelect.selectByValue("8");
+        Select queenSelect = new Select(queenDropdown);
+        queenSelect.selectByValue("2");
+        extraHivePartsField.sendKeys(Keys.RIGHT);
+        inUseCheckbox.click();
     }
     public void submit()
     {
