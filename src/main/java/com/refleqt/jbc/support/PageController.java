@@ -16,7 +16,7 @@ public class PageController {
     private ProfilePage profilePage;
     private RegisterForm registerForm;
     private LoginHeader loginHeader;
-
+    private CreateBeehivePage createBeehivePage;
 
     // Private members
     private int shortTimeOut = 10;
@@ -90,6 +90,14 @@ public class PageController {
         }
         PageFactory.initElements(driver, loginHeader);
         return loginHeader;
+    }
+    public CreateBeehivePage createBeehivePage()
+    {
+        if (createBeehivePage == null){
+            createBeehivePage = new CreateBeehivePage();
+        }
+        PageFactory.initElements(driver, createBeehivePage);
+        return createBeehivePage;
     }
 
 }
