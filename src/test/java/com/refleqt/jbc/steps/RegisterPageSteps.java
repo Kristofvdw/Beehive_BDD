@@ -37,4 +37,12 @@ public class RegisterPageSteps
     {
         Assert.assertTrue(pageController.registerForm().checkRegister());
     }
+
+    @When("I enter Username (\\S+) and Password (\\S+)")
+    public void fillRegister()
+    {
+        pageController.registerForm().fillRegisterForm("Test" );
+    }
+
+
 }
