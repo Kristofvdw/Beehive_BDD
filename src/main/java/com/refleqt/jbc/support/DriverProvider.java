@@ -21,7 +21,9 @@ public class DriverProvider {
     public static WebDriver setupDriver() {
         int implicitWait = 60;
         //Create chromeDriver
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kristof\\Dropbox\\3SWM\\Testing\\chromedriver.exe");
+        String username = System.getProperty("user.name");
+        String path = "C:\\Users\\" + username + "\\Dropbox\\3SWM\\Testing\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", path);
         driver = new ChromeDriver(createLocalCapabilities());
         //Maximize screen
         java.awt.Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

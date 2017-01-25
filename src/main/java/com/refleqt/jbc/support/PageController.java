@@ -1,9 +1,6 @@
 package com.refleqt.jbc.support;
 
-import com.refleqt.jbc.pages.HomePage;
-import com.refleqt.jbc.pages.LoginPage;
-import com.refleqt.jbc.pages.ProfilePage;
-import com.refleqt.jbc.pages.RegisterForm;
+import com.refleqt.jbc.pages.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -19,6 +16,8 @@ public class PageController {
     private LoginPage loginPage;
     private ProfilePage profilePage;
     private RegisterForm registerForm;
+    private LoginHeader loginHeader;
+
 
     // Private members
     private int shortTimeOut = 10;
@@ -92,4 +91,13 @@ public class PageController {
         PageFactory.initElements(driver, registerForm);
         return registerForm;
     }
+    public LoginHeader loginHeader()
+    {
+        if (loginHeader == null){
+            loginHeader = new LoginHeader();
+        }
+        PageFactory.initElements(driver, loginHeader);
+        return loginHeader;
+    }
+
 }

@@ -12,8 +12,5 @@ public class ProfilePageSteps {
         this.pageController = PageController.getInstance();
     }
 
-    @Then("I am logged in")
-    public void checkLogin(){
-        pageController.profilePage().checkLogin();
-    }
+
 }

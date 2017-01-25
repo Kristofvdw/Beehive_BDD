@@ -5,17 +5,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
+    /*
+    //Enter username
+        driver.findElement(By.cssSelector("input[ng-model='user.username']")).sendKeys(username);
+        //Enter password
+        driver.findElement(By.cssSelector("input[ng-model='user.password']")).sendKeys(password);
+        //Click submit or press enter
+        driver.findElement(By.cssSelector("input[ng-click='lc.login(user)']")).sendKeys(Keys.RETURN);
+        //driver.findElement(By.cssSelector("input[ng-click='lc.login(user)']")).click();*/
 
-    @FindBy(id = "edit-name")
+    @FindBy(css = "input[ng-model='user.username")
     WebElement usernameField;
 
-    @FindBy(id = "edit-pass")
+    @FindBy(css = "input[ng-model='user.password']")
     WebElement pwdField;
 
-    @FindBy(id = "edit-submit")
+    @FindBy(id = "input[ng-click='lc.login(user)")
     WebElement loginButton;
 
-    @FindBy(css = "div[class$='error']")
+    @FindBy(css = "ng-if='lc.error == 1'")
     WebElement errorField;
 
     public void login(String username, String password){

@@ -15,11 +15,16 @@ public class LoginPageSteps {
 
     @When("I login with username (\\S+) and password (\\S+)")
     public void login(String username, String password){
-        pageController.loginPage().login(username, password);
+        pageController.loginHeader().login(username, password);
+    }
+
+    @Then("I am logged in")
+    public void checkLogin(){
+        pageController.loginHeader().checkLogin();
     }
 
     @Then("I am not logged in")
     public void notLoggedIn(){
-        pageController.loginPage().notLoggedIn();
+        pageController.loginHeader().notLoggedIn();
     }
 }
