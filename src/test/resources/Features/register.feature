@@ -6,6 +6,5 @@ Feature: Register feature
 
     Given I navigate to http://172.16.62.26/#/
     When I click on the register button
-    And I click on register as a candidate button
     And I register with username Bertje and password bla
     Then I am registered
