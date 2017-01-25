@@ -26,6 +26,7 @@ public class PageController {
 
     // Constructor
     private PageController(){}
+
     public static PageController getInstance(){
         if (pageController == null){
             pageController = new PageController();
@@ -83,9 +84,7 @@ public class PageController {
         return profilePage;
     }
 
-
-    public RegisterForm registerForm()
-    {
+    public RegisterForm registerForm() {
         if (registerForm == null){
             registerForm = new RegisterForm();
         }
