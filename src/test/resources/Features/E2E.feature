@@ -2,7 +2,7 @@
 Feature: Login Feature
 
   Background:
-    Given I navigate to https://ploy:website@website-acc.ploy.be/nl
+    Given I navigate to http://172.16.62.26/index.html#/
     When  I go to the login section
 
   @validLogin
