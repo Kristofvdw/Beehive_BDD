@@ -13,7 +13,6 @@ public class PageController {
     private static PageController pageController;
 
     private HomePage homePage;
-    private LoginPage loginPage;
     private ProfilePage profilePage;
     private RegisterForm registerForm;
     private LoginHeader loginHeader;
@@ -66,13 +65,7 @@ public class PageController {
         return homePage;
     }
 
-    public LoginPage loginPage(){
-        if (loginPage == null){
-            loginPage = new LoginPage();
-        }
-        PageFactory.initElements(driver, loginPage);
-        return loginPage;
-    }
+
 
     public ProfilePage profilePage(){
         if (profilePage == null){

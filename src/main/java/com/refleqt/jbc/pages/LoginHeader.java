@@ -21,22 +21,19 @@ public class LoginHeader
     @FindBy(css = "label[ng-if='lc.error == 1'")
     WebElement errorField;
 
-    @FindBy(css = "div[col-xs-6.ng-binding]")
-    WebElement welkomField;
+    @FindBy(css = "input[value='Logout']")
+    WebElement logoutButton;
 
     public void login(String username, String password){
         usernameField.sendKeys(username);
         pwdField.sendKeys(password);
         loginButton.click();
     }
-
     public void notLoggedIn(){
         Assert.assertTrue(errorField.getText().toLowerCase().contains("gebruikersnaam of het wachtwoord is incorrect"));
     }
-
     public void checkLogin()
     {
-        Assert.assertTrue(true);
-        //Assert.assertEquals("Welkom",welkomField.getText().toLowerCase());
+        Assert.assertNotNull(logoutButton);
     }
 }

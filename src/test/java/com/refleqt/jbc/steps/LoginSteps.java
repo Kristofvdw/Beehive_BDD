@@ -4,12 +4,12 @@ import com.refleqt.jbc.support.PageController;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LoginPageSteps {
+public class LoginSteps {
 
     private PageController pageController;
 
     /** Constructor */
-    public LoginPageSteps(){
+    public LoginSteps(){
         this.pageController = PageController.getInstance();
     }
 
