@@ -21,6 +21,7 @@ public class PageController {
     private InspectionPage inspectionPage;
     private TreatmentPage treatmentPage;
     private CreateHoneyExtractionPage createHoneyExtractionPage;
+    private AdminPage adminPage;
 
     // Private members
     private int shortTimeOut = 10;
@@ -128,6 +129,14 @@ public class PageController {
         }
         PageFactory.initElements(driver, createHoneyExtractionPage);
         return createHoneyExtractionPage;
+    }
+    public AdminPage adminPage()
+    {
+        if (adminPage == null){
+            adminPage = new AdminPage();
+        }
+        PageFactory.initElements(driver, adminPage);
+        return adminPage;
     }
 
 }

@@ -9,21 +9,39 @@ public class HomePage {
     WebElement loginField;
     @FindBy(css = "a[href$='register']")
     WebElement registerButton;
-    @FindBy(css = "a[href$='candidate/register']")
-    WebElement candidateButton;
+    @FindBy(css = "a[href$='regionDashboard']")
+    WebElement regionDashboard;
+    @FindBy(css = "a[href$='notificationOverview']")
+    WebElement notificationOverview;
+    @FindBy(css = "a[href$='listApiaries']")
+    WebElement listApiaries;
+    @FindBy(css = "a[href='index.html#/']")
+    WebElement homeLink;
 
     public void goToLogin(){
         loginField.click();
     }
     public void goToRegister() {registerButton.click();}
+    public void goToRegionDashboard()
+    {
+        regionDashboard.click();
+    }
+    public void gotoNotificationOverview()
+    {
+        notificationOverview.click();
+    }
+    public void goToApiaries()
+    {
+        listApiaries.click();
+    }
+    public void goToHome()
+    {
+        homeLink.click();
+    }
+    public void goToInspection() {
 
-    public void goToInspection() {}
+    }
     public void goToTreatment() {}
     public void goToCreateBeehive() {}
     public void goToCreateApiary() {}
-
-
-    public void clickRegisterAsCandidate() {
-        candidateButton.click();
-    }
 }

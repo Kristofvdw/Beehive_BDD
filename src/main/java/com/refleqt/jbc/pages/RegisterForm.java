@@ -13,26 +13,30 @@ import java.util.List;
  */
 public class RegisterForm
 {
+    //@FindBy(xpath = "form[@id='username']\")")
     @FindBy(id = "username")
     WebElement username;
+    //@FindBy(xpath = "form[@id='password']\")")
     @FindBy(id = "password")
     WebElement password;
     @FindBy(id = "cpassword")
     WebElement controlPassword;
     @FindBy(id = "firstname")
     WebElement firstname;
-    @FindBy(id = "lastnameinput")
+    @FindBy(id = "lastname")
     WebElement lastname;
     @FindBy(id = "adresinput")
     WebElement adress;
-    @FindBy(id = "postcodeinput")
+    @FindBy(id = "postcode")
     WebElement postcode;
-    @FindBy(id = "mobileinput")
+    @FindBy(id = "mobile")
     WebElement mobile;
-    @FindBy(id = "emailinput")
+    @FindBy(id = "email")
     WebElement mail;
-    @FindBy(name = "submitbutton")
+    @FindBy(id = "submitbutton")
     WebElement submit;
+    @FindBy(css = "button[ng-click='homeCtrl.okRegModal()']")
+    WebElement okbutton;
 
 
     public void fillRegisterForm(List<String> table)
@@ -68,6 +72,7 @@ public class RegisterForm
 
     public void checkRegisterSuccess()
     {
+        okbutton.click();
         //To implement, check if the success message shows
         Assert.assertTrue(true);
     }

@@ -8,6 +8,7 @@ public class LoginSteps {
 
     private PageController pageController;
 
+
     /** Constructor */
     public LoginSteps(){
         this.pageController = PageController.getInstance();
@@ -26,5 +27,10 @@ public class LoginSteps {
     @Then("I am not logged in")
     public void notLoggedIn(){
         pageController.loginHeader().notLoggedIn();
+    }
+    @Then("I am logged in as an administrator")
+    public void checkLoginAdmin()
+    {
+        pageController.adminPage().checkLogin();
     }
 }

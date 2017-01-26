@@ -5,7 +5,7 @@ Feature: BeekeeperWorkflow Feature
     Given I navigate to http://172.16.62.26/
 
     @newUser
-    Scenario:
+    Scenario: ik ben een nieuwe gebruiker en ik registreer me en meld me aan
       When I click on the register button
       And I register with username Bertje and password Password123 and mail user@mail.com
       Then I am registered
@@ -13,7 +13,7 @@ Feature: BeekeeperWorkflow Feature
       Then I am logged in
 
     @existingUserDoesAnInspection
-    Scenario:
+    Scenario: ik ben een bestaande gebruiker en ik doe een inspectie
       When I login with username Bertje and password Password123
       Then I am logged in
       When I got to the inspection form

@@ -53,4 +53,9 @@ public class RegisterPageSteps
     {
         pageController.registerForm().checkRegisterSuccess();
     }
+    @And("I click the OK button")
+    public void clickOKregisteredButton()
+    {
+        pageController.registerForm().checkRegisterSuccess();
+    }
 }

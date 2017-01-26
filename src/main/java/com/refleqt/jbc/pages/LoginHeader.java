@@ -9,20 +9,24 @@ import org.openqa.selenium.support.FindBy;
  */
 public class LoginHeader
 {
-    @FindBy(css = "input[ng-model='user.username']")
+    @FindBy(id = "loginUsername")
     WebElement usernameField;
 
-    @FindBy(css = "input[ng-model='user.password']")
+    @FindBy(id = "loginPassword")
     WebElement pwdField;
 
-    @FindBy(css = "input[value='Login!']")
+    @FindBy(id = "loginButton")
     WebElement loginButton;
 
     @FindBy(css = "label[ng-if='lc.error == 1'")
     WebElement errorField;
 
-    @FindBy(css = "input[value='Logout']")
+    @FindBy(id = "logoutButton")
     WebElement logoutButton;
+
+    @FindBy(id = "registerButton")
+    WebElement registerButton;
+
 
     public void login(String username, String password){
         usernameField.sendKeys(username);
