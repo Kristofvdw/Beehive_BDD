@@ -23,7 +23,7 @@ public class autoCreateAccount
     @Before
     public void setUp()
     {
-        DriverProvider driverProvider = new DriverProvider();
+        PhantomDriverProvider driverProvider = new PhantomDriverProvider();
         driver = driverProvider.setupDriver();
     }
     @Test
