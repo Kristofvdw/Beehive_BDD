@@ -6,11 +6,15 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
+
 /**
  * Created by Kristof on 25/01/2017.
  */
 public class RegisterPageSteps
 {
+    private List<String> table;
+
     private PageController pageController;
     /** Constructor */
     public RegisterPageSteps(){
@@ -22,27 +26,22 @@ public class RegisterPageSteps
     {
         pageController.homePage().goToRegister();
     }
-    @And("I click on register as a candidate button")
-    public void clickRegisterAsCandidate()
-    {
-        pageController.homePage().clickRegisterAsCandidate();
+
+    @And("I fill in the form whit the following data$")
+    public void enterData(List<String> table){
+
+        this.table = table;
+
+        pageController.registerForm().fillRegisterForm(table);
     }
-    @And("I register with username (\\S+) and password (\\S+)")
-    public void fillRegisterForm(String username)
+    @And("I click the register button")
+    public void register()
     {
-        pageController.registerForm().fillRegisterForm(username);
+        pageController.registerForm().submitUser();
     }
-    @Then("I am registered")
+    @Then("I could log in")
     public void checkRegister()
     {
-        Assert.assertTrue(pageController.registerForm().checkRegister());
+       pageController.loginHeader().login(table.get(0),table.get(1));
     }
-
-    @When("I enter Username (\\S+) and Password (\\S+)")
-    public void fillRegister()
-    {
-        pageController.registerForm().fillRegisterForm("Test" );
-    }
-
-
 }
