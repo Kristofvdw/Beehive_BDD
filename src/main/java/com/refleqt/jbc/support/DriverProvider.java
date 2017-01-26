@@ -21,7 +21,7 @@ public class DriverProvider {
     public static WebDriver setupDriver() {
         int implicitWait = 60;
         //Create chromeDriver
-        String path = "C:\\Users\\jaspe\\Dropbox\\Beehive\\SWM Taken\\Testing\\chromedriver.exe";
+        String path = "src\\drivers\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         driver = new ChromeDriver(createLocalCapabilities());
         //Maximize screen
