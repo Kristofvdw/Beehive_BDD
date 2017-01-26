@@ -5,57 +5,57 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.w3c.dom.html.HTMLSelectElement;
 
+import java.util.List;
+
 /**
  * Created by Kristof on 25/01/2017.
  */
 public class RegisterForm
 {
-    @FindBy(id = "edit-first-name")
-    WebElement firstNameField;
-    @FindBy(id = "edit-last-name")
-    WebElement lastNameField;
-    @FindBy(id = "edit-gender-m")
-    WebElement genderField;
-    @FindBy(id = "edit-birth-date-day")
-    WebElement birthDayField;
-    @FindBy(id = "edit-birth-date-month")
-    Select birthMonthField;
-    @FindBy(id = "edit-birth-date-year")
-    Select birthYearField;
-    @FindBy(id = "edit-street-name")
-    WebElement streetNameField;
-    @FindBy(id = "edit-house-number")
-    WebElement houseNumberField;
-    @FindBy(id = "edit-box-number")
-    WebElement boxNumberField;
-    @FindBy(id = "edit-postal-code")
-    WebElement postalCodeField;
-    @FindBy(id = "edit-city")
-    WebElement cityField;
-    @FindBy(id = "edit-country")
-    HTMLSelectElement countryField;
-    @FindBy(id = "edit-telephone")
-    WebElement telephoneField;
+    @FindBy(id = "username")
+    WebElement username;
+    @FindBy(id = "password")
+    WebElement password;
+    @FindBy(id = "cpassword")
+    WebElement controlPassword;
+    @FindBy(id = "firstname")
+    WebElement firstname;
+    @FindBy(id = "lastnameinput")
+    WebElement lastname;
+    @FindBy(id = "adresinput")
+    WebElement adress;
+    @FindBy(id = "postcodeinput")
+    WebElement postcode;
+    @FindBy(id = "mobileinput")
+    WebElement mobile;
+    @FindBy(id = "emailinput")
+    WebElement mail;
+    @FindBy(name = "submitbutton")
+    WebElement submit;
 
-    public void fillRegisterForm(String username)
+
+    public void fillRegisterForm(List<String> table)
     {
-        firstNameField.sendKeys(username);
-        lastNameField.sendKeys("Curry");
-        //genderField.click();
-        //(Select)birthDayField.s;
-        birthMonthField.selectByVisibleText("Dec");
-        birthYearField.selectByVisibleText("1992");
-        streetNameField.sendKeys("Koedriesstraat");
-        houseNumberField.sendKeys("3");
-        boxNumberField.sendKeys("");
-        postalCodeField.sendKeys("3950");
-        cityField.sendKeys("Genk");
-        countryField.setValue("Thailand");
-        telephoneField.sendKeys("0478987648");
+        int i = 0;
+        for (String data : table)
+        {
+            System.out.println(i + " " + data);
+            i++;
+        }
+
+        username.sendKeys(table.get(0));
+        password.sendKeys(table.get(1));
+        controlPassword.sendKeys(table.get(2));
+        firstname.sendKeys(table.get(3));
+        lastname.sendKeys(table.get(4));
+        adress.sendKeys(table.get(5));
+        postcode.sendKeys(table.get(6));
+        mobile.sendKeys(table.get(7));
+        mail.sendKeys(table.get(8));
     }
 
-    public boolean checkRegister()
+    public void submitUser()
     {
-        return true;
+        submit.click();
     }
 }
