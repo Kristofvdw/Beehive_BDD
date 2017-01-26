@@ -30,7 +30,7 @@ public class LoginHeader
         loginButton.click();
     }
     public void notLoggedIn(){
-        Assert.assertTrue(errorField.getText().toLowerCase().contains("gebruikersnaam of het wachtwoord is incorrect"));
+        Assert.assertTrue(errorField.getText().toLowerCase().contains("login gevevens zijn onjuist"));
     }
     public void checkLogin()
     {

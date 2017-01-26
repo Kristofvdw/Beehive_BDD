@@ -2,6 +2,7 @@ package com.refleqt.jbc.support;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -22,7 +23,8 @@ public class DriverProvider {
         int implicitWait = 60;
         //Create chromeDriver
         String username = System.getProperty("user.name");
-        String path = "C:\\Users\\" + username + "\\Dropbox\\Beehive\\SWM Taken\\Testing\\chromedriver.exe";
+        String path = "chromedriver.exe";
+        //String path = "C:\\Users\\" + username + "\\Dropbox\\Beehive\\SWM Taken\\Testing\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         driver = new ChromeDriver(createLocalCapabilities());
         //Maximize screen
@@ -45,9 +47,15 @@ public class DriverProvider {
         capabilities.setCapability("requireWindowFocus", true);
         capabilities.setCapability("trustAllSslCertificates",true);
         capabilities.setCapability("unexpectedAlertBehaviour", "accept");
+        capabilities.setCapability("disable-logging",true);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-extensions");
         capabilities.setCapability(ChromeOptions.CAPABILITY,options);
+        ChromeDriverService service=new ChromeDriverService.Builder()
+                .withSilent(true)
+                .build();
+
+
         return capabilities;
     }
 }
