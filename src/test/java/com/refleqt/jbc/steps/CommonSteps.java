@@ -22,6 +22,6 @@ public class CommonSteps {
 
     @After
     public void afterScenario() {
-        //pageController.tearDownDriver();
+        pageController.tearDownDriver();
     }
 }

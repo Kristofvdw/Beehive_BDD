@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+
         features={"src/test/resources/Features/createAccount.feature","src/test/resources/Features/createBeehive.feature"},//Path to the tests
         tags = {"@createAccount"},//What tags to include(@)/exclude(@~)
         glue = {"com.refleqt.jbc.steps"},//Path to steps
