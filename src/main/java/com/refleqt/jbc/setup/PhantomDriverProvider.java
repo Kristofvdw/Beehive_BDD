@@ -6,13 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Kristof on 26/01/2017.
+ * Makes a headless driver provider
+ * Usefull for setup scripts or other tests
  */
 public class PhantomDriverProvider
 {
     protected static WebDriver driver;
+    //method to test the Phantomjs driver
     public static void main(String[] args)
     {
         driver = setupDriver();
@@ -29,6 +33,7 @@ public class PhantomDriverProvider
         String path = "src\\drivers\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe";
         System.setProperty("phantomjs.binary.path", path);
         WebDriver driver = new PhantomJSDriver();
+        driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
         return driver;
     }
 }

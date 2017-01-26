@@ -1,6 +1,7 @@
 package com.refleqt.jbc.support;
 
 import com.refleqt.jbc.pages.*;
+import com.refleqt.jbc.setup.PhantomDriverProvider;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +18,7 @@ public class PageController {
     private RegisterForm registerForm;
     private LoginHeader loginHeader;
     private CreateBeehivePage createBeehivePage;
+    private InspectionPage inspectionPage;
 
     // Private members
     private int shortTimeOut = 10;
@@ -31,7 +33,7 @@ public class PageController {
         }
         return pageController;
     }
-
+    //Choose between the Headlessdriver or the other drivers
     public void setupDriver(){
         driver = DriverProvider.setupDriver();
     }
@@ -98,6 +100,14 @@ public class PageController {
         }
         PageFactory.initElements(driver, createBeehivePage);
         return createBeehivePage;
+    }
+    public InspectionPage inspectionPage()
+    {
+        if (inspectionPage == null){
+            inspectionPage = new InspectionPage();
+        }
+        PageFactory.initElements(driver, inspectionPage);
+        return inspectionPage;
     }
 
 }

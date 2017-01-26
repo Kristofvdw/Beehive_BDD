@@ -33,6 +33,8 @@ public class CreateBeehivePage
     WebElement extraHivePartsField;
     @FindBy(id="in_use")
     WebElement inUseCheckbox;
+    @FindBy(id="submitButton")
+    WebElement submitButton;
 
 
     public void checkOpenedForm()
@@ -55,11 +57,14 @@ public class CreateBeehivePage
     }
     public void submit()
     {
+        submitButton.click();
+        //To Do
         Assert.assertTrue(true);
     }
 
     public void checkAddedBeehive()
     {
+        //To Do
         Assert.assertTrue(true);
     }
 
