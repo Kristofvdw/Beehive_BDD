@@ -5,14 +5,17 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
+/**
+ * Created by Kristof on 26/01/2017.
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features="src/test/resources/Features/",//Path to the tests
-        tags = {"@honeyExtraction","~@ignore"},//What tags to include(@)/exclude(@~)
+        tags = {"@workflow","~@ignore"},//What tags to include(@)/exclude(@~)
         glue = {"com.refleqt.jbc.steps"},//Path to steps
         plugin = {"pretty", "json:target/cucumber/json/E2ETest.json"},
         strict = true,
         snippets = SnippetType.CAMELCASE
 )
-public class BeehiveTest {
+public class BeekeeperTest {
 }

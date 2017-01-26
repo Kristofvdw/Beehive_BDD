@@ -1,5 +1,6 @@
 package com.refleqt.jbc.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -57,5 +58,17 @@ public class RegisterForm
     public void submitUser()
     {
         submit.click();
+    }
+    public void onlyFillUniqueFields(String name, String pass, String email)
+    {
+        username.sendKeys(name);
+        password.sendKeys(pass);
+        mail.sendKeys(email);
+    }
+
+    public void checkRegisterSuccess()
+    {
+        //To implement, check if the success message shows
+        Assert.assertTrue(true);
     }
 }

@@ -27,11 +27,10 @@ public class RegisterPageSteps
         pageController.homePage().goToRegister();
     }
 
-    @And("I fill in the form whit the following data$")
+    @And("I fill in the form with the following data$")
     public void enterData(List<String> table){
 
         this.table = table;
-
         pageController.registerForm().fillRegisterForm(table);
     }
     @And("I click the register button")
@@ -39,9 +38,19 @@ public class RegisterPageSteps
     {
         pageController.registerForm().submitUser();
     }
-    @Then("I could log in")
+    @Then("I should be able to login")
     public void checkRegister()
     {
-       pageController.loginHeader().login(table.get(0),table.get(1));
+        //Check login of created user
+        pageController.loginHeader().login(table.get(0),table.get(1));
+    }
+    @When("I register with username (\\S+) and password (\\S+) and mail (\\S+)")
+    public void registerWithUsernameAndPassword(String username, String password, String mail){
+        pageController.registerForm().onlyFillUniqueFields(username, password, mail);
+    }
+    @Then("I am registered")
+    public void checkRegisterSuccess()
+    {
+        pageController.registerForm().checkRegisterSuccess();
     }
 }

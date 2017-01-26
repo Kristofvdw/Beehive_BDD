@@ -20,6 +20,8 @@ public class DriverProvider {
 
     /**Create WebDriver instance, with desired capabilities, which is used to perform browser interactions with.*/
     public static WebDriver setupDriver() {
+        String msg = "Launching Chromedriver";
+        System.out.println((char)27 + "[34m" + msg + (char)27 + "[0m");
         int implicitWait = 60;
         //Create chromeDriver
         String username = System.getProperty("user.name");

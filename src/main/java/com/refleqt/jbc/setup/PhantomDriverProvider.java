@@ -20,6 +20,10 @@ public class PhantomDriverProvider
     public static void main(String[] args)
     {
         driver = setupDriver();
+        testDriver();
+    }
+
+    private static void testDriver() {
         driver.get("http://www.google.com");
         WebElement element = driver.findElement(By.name("q"));
         element.sendKeys("Guru99");
@@ -27,8 +31,11 @@ public class PhantomDriverProvider
         System.out.println("Page title is: " + driver.getTitle());
         driver.quit();
     }
+
     /**Create PhantomJS instance, with desired capabilities, which is used to perform browser interactions with.*/
     public static WebDriver setupDriver() {
+        String msg = "Launching PhantomJs driver!";
+        System.out.println((char)27 + "[34m" + msg + (char)27 + "[0m");
         int implicitWait = 60;
         String path = "src\\drivers\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe";
         System.setProperty("phantomjs.binary.path", path);

@@ -17,6 +17,12 @@ public class HomePage {
     }
     public void goToRegister() {registerButton.click();}
 
+    public void goToInspection() {}
+    public void goToTreatment() {}
+    public void goToCreateBeehive() {}
+    public void goToCreateApiary() {}
+
+
     public void clickRegisterAsCandidate() {
         candidateButton.click();
     }

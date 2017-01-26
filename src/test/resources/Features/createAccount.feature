@@ -7,7 +7,7 @@ Feature: createAccount feature
   @ValidCreateAccount
   Scenario:
     When I click on the register button
-      And I fill in the form whit the following data
+      And I fill in the form with the following data
        | Test01        |
        | komkommer01   |
        | komkommer01   |
@@ -18,6 +18,6 @@ Feature: createAccount feature
        | 0499239100        |
        | tester@beehive.com |
       And I click the register button
-    Then I could log in
+    Then I should be able to login
 
 

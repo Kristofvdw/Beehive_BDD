@@ -37,4 +37,10 @@ public class InspectionSteps
     {
         pageController.inspectionPage().checkInspection();
     }
+    @When("I got to the inspection form")
+    public void goToInspectionForm()
+    {
+        /* Todo click inspectionForm button */
+        pageController.openWebPage("http://172.16.62.26/index.html#/createInspection");
+    }
 }

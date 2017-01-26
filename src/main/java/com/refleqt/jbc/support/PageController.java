@@ -19,6 +19,8 @@ public class PageController {
     private LoginHeader loginHeader;
     private CreateBeehivePage createBeehivePage;
     private InspectionPage inspectionPage;
+    private TreatmentPage treatmentPage;
+    private CreateHoneyExtractionPage createHoneyExtractionPage;
 
     // Private members
     private int shortTimeOut = 10;
@@ -39,6 +41,8 @@ public class PageController {
     }
 
     public void tearDownDriver(){
+        String msg = "Quitting driver";
+        System.out.println((char)27 + "[34m" + msg + (char)27 + "[0m");
         driver.quit();
     }
 
@@ -108,6 +112,22 @@ public class PageController {
         }
         PageFactory.initElements(driver, inspectionPage);
         return inspectionPage;
+    }
+    public TreatmentPage treatmentPage()
+    {
+        if (treatmentPage == null){
+            treatmentPage = new TreatmentPage();
+        }
+        PageFactory.initElements(driver, treatmentPage);
+        return treatmentPage;
+    }
+    public CreateHoneyExtractionPage createHoneyExtractionPage()
+    {
+        if (createHoneyExtractionPage == null){
+            createHoneyExtractionPage = new CreateHoneyExtractionPage();
+        }
+        PageFactory.initElements(driver, createHoneyExtractionPage);
+        return createHoneyExtractionPage;
     }
 
 }
