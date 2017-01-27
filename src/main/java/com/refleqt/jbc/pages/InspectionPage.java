@@ -17,7 +17,7 @@ public class InspectionPage
 {
     @FindBy(name = "InspectionForm")
     WebElement InspectionForm;
-    @FindBy(name="time_stamp")
+    @FindBy(id="time_stamp")
     WebElement dateField;
     @FindBy(id="queen_cells")
     WebElement cellsInput;
@@ -67,6 +67,7 @@ public class InspectionPage
         probSelect.selectByValue("3");
         probSelect.selectByValue("1");
     }
+
     public void pressSubmit()
     {
         //Element <button id="submitbutton" name="submitbutton" class="btn btn-primary" ng-click="inspectionCtrl.create(inspection, InspectionForm.$valid)">...</button>

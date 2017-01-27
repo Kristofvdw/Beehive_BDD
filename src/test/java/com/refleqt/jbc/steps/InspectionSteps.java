@@ -6,12 +6,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
- * Created by Kristof on 26/01/2017.
- * When the inspectie formulier opened
+ Created by Kristof on 26/01/2017.
+ When the inspectie formulier opened
  When I fill in the form
  And I press the voeg toe button
- Then I created an inspection
- */
+ Then I created an inspection*/
 public class InspectionSteps
 {
     private PageController pageController;

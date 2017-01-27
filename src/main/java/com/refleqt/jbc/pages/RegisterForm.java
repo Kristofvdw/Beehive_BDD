@@ -67,7 +67,9 @@ public class RegisterForm
     {
         username.sendKeys(name);
         password.sendKeys(pass);
+        controlPassword.sendKeys(pass);
         mail.sendKeys(email);
+        submit.click();
     }
 
     public void checkRegisterSuccess()

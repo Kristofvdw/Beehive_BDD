@@ -1,12 +1,21 @@
 package com.refleqt.jbc.support;
 
 import com.refleqt.jbc.pages.*;
+import com.refleqt.jbc.setup.EdgeDriverProvider;
+import com.refleqt.jbc.setup.FirefoxDriverProvider;
 import com.refleqt.jbc.setup.PhantomDriverProvider;
+import com.refleqt.jbc.setup.SafariDriverProvider;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
 public class PageController {
     /** Members */
@@ -37,8 +46,32 @@ public class PageController {
         return pageController;
     }
     //Choose between the Headlessdriver or the other drivers
-    public void setupDriver(){
-        driver = DriverProvider.setupDriver();
+    //Enter the to use driver in .idea/config.properties
+    //Values chrome, edge, phantom, safari (Only on IOS) or firefox.
+    public void setupDriver() {
+        Properties p=new Properties();
+        try {
+            FileReader reader=new FileReader(".idea\\config.properties");
+            p.load(reader);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not find properties file, starting default driver");
+        }
+        System.out.println((char)27 +"Found driver: " + p.getProperty("driver") + " in the config file @.idea/config.properties" + (char)27 + "[0m");
+        switch (p.getProperty("driver")) {
+            case "firefox": driver = FirefoxDriverProvider.setupDriver();
+                break;
+            case "edge": driver = EdgeDriverProvider.setupDriver();
+                break;
+            case "phantom":  driver = PhantomDriverProvider.setupDriver();
+                break;
+            case "safari":  driver = SafariDriverProvider.setupDriver();
+                break;
+            default: driver = DriverProvider.setupDriver();
+                break;
+        }
+
     }
 
     public void tearDownDriver(){
@@ -60,6 +93,7 @@ public class PageController {
     }
 
     public void openWebPage(String url){
+
         driver.get(url);
         waitForFullPageLoad();
     }
