@@ -23,7 +23,6 @@ public class PageController {
     private static PageController pageController;
 
     private HomePage homePage;
-    private ProfilePage profilePage;
     private RegisterForm registerForm;
     private LoginHeader loginHeader;
     private CreateBeehivePage createBeehivePage;
@@ -106,17 +105,6 @@ public class PageController {
         PageFactory.initElements(driver, homePage);
         return homePage;
     }
-
-
-
-    public ProfilePage profilePage(){
-        if (profilePage == null){
-            profilePage = new ProfilePage();
-        }
-        PageFactory.initElements(driver, profilePage);
-        return profilePage;
-    }
-
     public RegisterForm registerForm() {
         if (registerForm == null){
             registerForm = new RegisterForm();

@@ -44,11 +44,11 @@ public class autoCreateAccount
         driver.findElement(By.id("password")).sendKeys("Password123");
         driver.findElement(By.id("cpassword")).sendKeys("Password123");
         driver.findElement(By.id("firstname")).sendKeys("firstname");
-        driver.findElement(By.id("lastnameinput")).sendKeys("lastnameinput");
+        driver.findElement(By.id("lastname")).sendKeys("lastnameinput");
         driver.findElement(By.id("adresinput")).sendKeys("adress 45");
-        driver.findElement(By.id("postcodeinput")).sendKeys("3600");
-        driver.findElement(By.id("mobileinput")).sendKeys("0479648234");
-        driver.findElement(By.id("emailinput")).sendKeys("kristof@mail.be");
+        driver.findElement(By.id("postcode")).sendKeys("3600");
+        driver.findElement(By.id("mobile")).sendKeys("0479648234");
+        driver.findElement(By.id("email")).sendKeys("kristof@mail.be");
         driver.findElement(By.id("submitbutton")).click();
     }
     @After
