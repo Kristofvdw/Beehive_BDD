@@ -1,6 +1,7 @@
 package com.refleqt.jbc.setup;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.refleqt.jbc.setup.PhantomDriverProvider.driver;
 
 /**
  * Created by Kristof on 27/01/2017.
@@ -28,7 +31,7 @@ public class FirefoxDriverProvider
 
     @After
     public void quitDriver() {
-        driver.quit();
+        //driver.quit();
     }
 
     @Test
@@ -49,5 +52,18 @@ public class FirefoxDriverProvider
         WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
         return driver;
+    }
+    //De frontend is nog een beetje onbeveiligd
+    @Test
+    public void hackTheSite()
+    {
+        driver.get("http://172.16.62.26/#/");
+        //Make sure we are on the website
+        Assert.assertEquals(driver.getTitle(),"B-Central");
+        com.refleqt.jbc.setup.SessionStorage ss = new com.refleqt.jbc.setup.SessionStorage(driver);
+        ss.setItemInSessionStorage("username","badusername");
+        ss.setItemInSessionStorage("password","badpass");
+        ss.setItemInSessionStorage("role","admin");
+        driver.navigate().refresh();
     }
 }

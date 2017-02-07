@@ -33,11 +33,16 @@ public class LoginHeader
         pwdField.sendKeys(password);
         loginButton.click();
     }
-    public void notLoggedIn(){
-        Assert.assertTrue(errorField.getText().toLowerCase().contains("login gevevens zijn onjuist"));
+    public void notLoggedIn()
+    {
+        //Er zou een errorfield moeten verschijnen.
+        Assert.assertNotNull(errorField);
+        Assert.assertTrue(errorField.getText().toLowerCase().contains("incorrect"));
     }
     public void checkLogin()
     {
+        //Loginbutton should disappear, logout should appear
         Assert.assertNotNull(logoutButton);
+        Assert.assertNull(loginButton);
     }
 }

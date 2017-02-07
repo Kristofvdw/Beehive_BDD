@@ -22,6 +22,8 @@ Feature: BeekeeperWorkflow Feature
       When I login with username Harry and password Password123
       Then I am logged in
 
+
+
     @existingUserDoesAnInspection
     Scenario: ik ben een bestaande gebruiker en ik doe een inspectie
       When I login with username Harry and password Password123

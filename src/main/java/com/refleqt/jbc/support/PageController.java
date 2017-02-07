@@ -73,6 +73,10 @@ public class PageController {
         }
 
     }
+    public WebDriver getDriver()
+    {
+        return driver;
+    }
 
     public void tearDownDriver(){
         String msg = "Quitting driver";
