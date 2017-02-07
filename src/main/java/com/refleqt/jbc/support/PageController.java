@@ -30,6 +30,7 @@ public class PageController {
     private TreatmentPage treatmentPage;
     private CreateHoneyExtractionPage createHoneyExtractionPage;
     private AdminPage adminPage;
+    private CreateApiaryPage createApiaryPage;
 
     // Private members
     private int shortTimeOut = 10;
@@ -159,6 +160,14 @@ public class PageController {
         }
         PageFactory.initElements(driver, adminPage);
         return adminPage;
+    }
+    public CreateApiaryPage createApiaryPage()
+    {
+        if (createApiaryPage == null){
+            createApiaryPage = new CreateApiaryPage();
+        }
+        PageFactory.initElements(driver, createApiaryPage);
+        return createApiaryPage;
     }
 
 }

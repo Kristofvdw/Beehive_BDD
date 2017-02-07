@@ -15,6 +15,6 @@ Feature: Login Feature
       Then  I am not logged in
 
   @adminLogin
-    Scenario: Een administrator kan inloggen met de jusite gegevens
+    Scenario: Een administrator kan inloggen met de juiste gegevens
     When I login with username random and password y$lo
     Then I am logged in as an administrator

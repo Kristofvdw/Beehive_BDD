@@ -17,6 +17,8 @@ public class HomePage {
     WebElement listApiaries;
     @FindBy(css = "a[href='index.html#/']")
     WebElement homeLink;
+    @FindBy(id="submitbutton")
+    WebElement submitButton;
 
     public void goToLogin(){
         loginField.click();
@@ -44,4 +46,9 @@ public class HomePage {
     public void goToTreatment() {}
     public void goToCreateBeehive() {}
     public void goToCreateApiary() {}
+
+    public void press_submitButton()
+    {
+        submitButton.click();
+    }
 }

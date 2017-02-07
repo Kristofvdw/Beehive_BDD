@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features="src/test/resources/Features/",//Path to the tests
-        tags = {"@workflow","~@ignore"},//What tags to include(@)/exclude(@~)
+        tags = {"@newUser","~@ignore"},//What tags to include(@)/exclude(@~)
         glue = {"com.refleqt.jbc.steps"},//Path to steps
         plugin = {"pretty", "html:target/cucumber"},
         strict = true,

@@ -3,6 +3,7 @@ package com.refleqt.jbc.steps;
 import com.refleqt.jbc.support.PageController;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 
 public class CommonSteps {
@@ -23,5 +24,10 @@ public class CommonSteps {
     @After
     public void afterScenario() {
         //pageController.tearDownDriver();
+    }
+    @And("I press the submitButton")
+    public void pressSumbit()
+    {
+        pageController.homePage().press_submitButton();
     }
 }
