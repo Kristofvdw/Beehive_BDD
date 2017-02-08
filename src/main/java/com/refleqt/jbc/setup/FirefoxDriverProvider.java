@@ -11,6 +11,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.xml.bind.DatatypeConverter;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
 import static com.refleqt.jbc.setup.PhantomDriverProvider.driver;
@@ -61,9 +65,25 @@ public class FirefoxDriverProvider
         //Make sure we are on the website
         Assert.assertEquals(driver.getTitle(),"B-Central");
         com.refleqt.jbc.setup.SessionStorage ss = new com.refleqt.jbc.setup.SessionStorage(driver);
-        ss.setItemInSessionStorage("username","badusername");
-        ss.setItemInSessionStorage("password","badpass");
-        ss.setItemInSessionStorage("role","admin");
+        ss.setItemInSessionStorage("username","Mark");
+        String hash = null;
+        try {
+            hash = DatatypeConverter.printHexBinary(
+                    MessageDigest.getInstance("SHA-256").digest("Password123".getBytes("UTF-8")));
+            System.out.println(hash);
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        ss.setItemInSessionStorage("password",hash);
+        //ss.setItemInSessionStorage("password",hash);
+        ss.setItemInSessionStorage("role","ADMIN");
         driver.navigate().refresh();
+        ss.getItemFromSessionStorage("username");
+        ss.getItemFromSessionStorage("password");
+        System.out.println(ss.getItemFromSessionStorage("role"));
+        System.out.println(hash);
     }
 }

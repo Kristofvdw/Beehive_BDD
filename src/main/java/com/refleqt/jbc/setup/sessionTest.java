@@ -30,5 +30,8 @@ public class sessionTest
         ss.setItemInSessionStorage("username","badusername");
         ss.setItemInSessionStorage("password","badpass");
         driver.navigate().refresh();
+        ss.getItemFromSessionStorage("username");
+        ss.getItemFromSessionStorage("password");
+        System.out.println(ss.getItemFromSessionStorage("role"));
     }
 }
